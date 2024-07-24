@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Documentos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Gerador de Documentos</h1>
+    <div class="converter">
+        <div class="field">
+            <label for="docType">Tipo de Documento:</label>
+            <div class="input-wrapper">
+                <select id="docType">
+                    <option value="cpf">CPF</option>
+                    <option value="cnpj">CNPJ</option>
+                    <option value="rfc">RFC</option>
+                    <option value="curp">CURP</option>
+                </select>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="generateBtn" onclick="openModal()">Gerar</button>
+            <button onclick="copyToClipboard()">Copiar</button>
+        </div>
+        <div id="result">
+            <span id="generatedDoc"></span>
+        </div>
+    </div>
+</div>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>
+            IMPORTANTE: Nosso gerador online de documentos tem como intenção ajudar estudantes, programadores, analistas e testadores a gerar documentos válidos. Normalmente necessários para testar seus softwares em desenvolvimento. A má utilização dos dados aqui gerados é de total responsabilidade do usuário.
+        </p>
+        <p class="creator">Criado por @profadevairvitorio</p>
+        <button onclick="acceptTerms()">Aceito</button>
+    </div>
+</div>
+<footer>
+    <p class="creator">Criado por @profadevairvitorio</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #1e1e1e, 0 0 10px #1e1e1e; }
+    50% { text-shadow: 0 0 15px #39FF14, 0 0 30px #39FF14; }
+    100% { text-shadow: 0 0 5px #1e1e1e, 0 0 10px #1e1e1e; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+body {
+    font-family: 'Gothic A1', sans-serif;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 50px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.container {
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    animation: slideIn 1.5s ease-in-out;
+    max-width: 400px;
+    width: 100%;
+    border: 2px solid #555;
+    box-shadow: 0 0 10px #000;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #39FF14;
+    animation: glow 3s infinite;
+}
+
+.converter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideIn 2s ease-in-out;
+}
+
+.field {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.field label {
+    margin-bottom: 5px;
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.converter input, .converter select, .converter button {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #444;
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.input-wrapper input {
+    flex: 1;
+    max-width: 200px;
+}
+
+.input-wrapper select {
+    margin-left: 10px;
+    max-width: 100px;
+}
+
+.converter input:focus, .converter select:focus, .converter button:focus {
+    outline: none;
+    box-shadow: 0 0 15px #39FF14, 0 0 30px #39FF14;
+    background-color: #333;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 300px;
+}
+
+.converter button {
+    background-color: #333;
+    color: #e0e0e0;
+    cursor: pointer;
+    flex: 1;
+    margin: 0 5px;
+    border: 2px solid #444;
+    animation: pulse 2s infinite alternate;
+}
+
+.converter button:hover {
+    background-color: #444;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #39FF14, 0 0 30px #39FF14;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    animation: fadeIn 1.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#result span {
+    margin-left: 10px;
+    font-size: 1em;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #39FF14;
+}
+
+.creator {
+    color: #39FF14;
+    animation: pulse 2s infinite;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.creator:hover {
+    color: #e0e0e0;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .converter {
+        padding: 10px;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-wrapper input, .input-wrapper select {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .converter button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #2b2b2b;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #444;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+    color: #e0e0e0;
+    animation: slideIn 1s ease-in-out;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #e0e0e0;
+    cursor: pointer;
+    animation: pulse 2s infinite alternate;
+}
+
+.modal-content button:hover {
+    background-color: #444;
+    box-shadow: 0 0 15px #39FF14, 0 0 30px #39FF14;
+}
+
+.close {
+    color: #e0e0e0;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #39FF14;
+    text-decoration: none;
+    cursor: pointer;
+}
